@@ -1,0 +1,14 @@
+body {
+    font-family: "Open Sans", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.navigation {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    font-size: 20px;
+    color: #eee;
+    text-decoration: underline;
+}
