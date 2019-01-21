@@ -30,7 +30,7 @@ class StepOne extends Component {
             // Getting max depth of nesting
             let maxDepth = Math.max.apply(Math, sortedInput.map(i => i.level));
             // Pushing children in their parents
-            const output = sortedInput.reduce((prevValue, currentItem) => {
+            const output = sortedInput.reduce((acc, currentItem) => {
                 if (currentItem.level <= maxDepth && currentItem.parent_id) {
                     const parent = sortedInput.filter(i => i.id === currentItem.parent_id);
 
@@ -40,11 +40,11 @@ class StepOne extends Component {
                         throw new Error(`"${parent[0].title}" can't have children`);
 
                     parent[0].children.push(currentItem);
-                    prevValue = [...parent];
+                    return parent;
                 } else {
                     maxDepth--;
                 }
-                return prevValue;
+                return acc;
             }, [...sortedInput]);
 
             this.setState({
