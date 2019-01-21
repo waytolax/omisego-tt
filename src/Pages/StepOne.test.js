@@ -1,10 +1,15 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 import StepOne from './StepOne';
 
 describe('<StepOne />', () => {
-        
-    const wrapper = mount(<StepOne />);
+    const app = (
+        <Router>
+            <StepOne />
+        </Router>
+    );        
+    const wrapper = mount(app);
     const input = wrapper.find('StepOne__StyledArea').first();
     const output = wrapper.find('StepOne__StyledArea').last();
     const mockInput = JSON.stringify({
